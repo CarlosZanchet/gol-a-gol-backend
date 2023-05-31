@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  gol-a-gol:
+    container_name: gol-a-gol-pg
+    image: bitnami/postgresql
+    ports: 
+      - 5432:5432
+    environment:
+      - POSTGRESQL_USERNAME=docker
+      - POSTGRESQL_PASSWORD=docker
+      - POSTGRESQL_DATABASE=gol-a-gol
