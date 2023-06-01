@@ -17,3 +17,42 @@ model User {
   password_hash String
   created_at    DateTime @default(now())
 }
+
+model Rodada {
+  id     String @id @default(uuid())
+  nome   String
+  slug   String
+  rodada BigInt
+  status String
+  link   String
+}
+
+model Time {
+  id           BigInt @id
+  nome_popular String
+  sigla        String
+  escudo       String
+}
+
+// model Time {
+//   id                BigInt    @id
+//   id_api            BigInt    @unique
+//   nome_popular      String
+//   sigla             String
+//   escudo            String
+//   partidasMandante  Partida[] @relation("partidasMandante")
+//   partidasVisitante Partida[] @relation("partidasVisitante")
+// }
+// 
+// model Partida {
+//   id                   String   @id @default(uuid())
+//   id_api               BigInt   @unique
+//   placar               String
+//   time_mandante        Time     @relation("partidasMandante", fields: [timeMandanteId], references: [id])
+//   timeMandanteId       String
+//   time_visitante       Time     @relation("partidasVisitante", fields: [timeVIsitanteId], references: [id])
+//   timeVIsitanteId      String
+//   placar_mandante      BigInt
+//   placar_visitante     BigInt
+//   data_hora_realizacao DateTime
+// }
